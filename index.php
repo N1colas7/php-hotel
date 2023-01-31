@@ -40,6 +40,19 @@
 
     ];
 
+    /*$filteredHotels = $hotels;
+
+    if(isset($_GET('vote')) && $_GET('vote') !== ''){
+        $tempHtotels = [];
+        foreach($hotels as $hotel){
+            if($hotel['vote']>= $_GET['vote']){
+                $tempHtotels [] = $hotel;
+            }
+        }
+
+        $filteredHotels = $tempHtotels;
+    }*/
+
 ?>
 
 <!DOCTYPE html>
@@ -52,7 +65,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-    
+    <h1>List Hotel</h1>
+
     <table>
         <thead>
             <th>Nome</th>
@@ -62,13 +76,13 @@
             <th>Distanza da centro</th>
         </thead>
         <tbody>
-            <?php foreach($hotels as $item) { ?>
+            <?php foreach($hotels as $hotel) { ?>
             <tr>
-                <td><?php echo $item['name']; ?></td>
-                <td><?php echo $item['description']; ?></td>
-                <td><?php echo $item['parking']; ?></td>
-                <td><?php echo $item['vote']; ?></td>
-                <td><?php echo $item['distance_to_center']; ?></td>
+                <td><?php echo $hotel['name']; ?></td>
+                <td><?php echo $hotel['description']; ?></td>
+                <td><?php echo $hotel['parking'] ? 'Yes':'No';?></td>
+                <td><?php echo $hotel['vote']; ?></td>
+                <td><?php echo $hotel['distance_to_center']; ?></td>
             </tr>
             <?php } ?>
         </tbody>    
